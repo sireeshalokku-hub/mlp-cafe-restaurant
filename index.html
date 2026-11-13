@@ -1,0 +1,731 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MLP Cafe & Restaurant</title>
+
+<meta name="description" content="Visit MLP Cafe & Restaurant in Thimmaji Khandrika, Andhra Pradesh. Enjoy delicious food and great moments.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fffaf2;
+    color: #302016;
+}
+
+:root {
+    --brown: #24150d;
+    --gold: #e9b66d;
+    --cream: #fffaf2;
+    --light: #f5e9d8;
+}
+
+.container {
+    width: 88%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* NAVBAR */
+
+header {
+    background: var(--brown);
+    color: white;
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--gold);
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.logo span {
+    display: block;
+    color: white;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 650px;
+    background:
+    linear-gradient(rgba(20,10,5,.65), rgba(20,10,5,.72)),
+    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85');
+
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.tagline {
+    color: var(--gold);
+    letter-spacing: 5px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 7vw, 70px);
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    font-size: 16px;
+    color: #eee;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--brown);
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: 6px;
+    font-weight: 700;
+    margin: 7px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: white;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 85px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title small {
+    color: #b17b3d;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    color: #80451f;
+    margin-top: 10px;
+}
+
+.section-title p {
+    color: #777;
+    margin-top: 10px;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.about-content h2 {
+    font-size: 35px;
+    color: #80451f;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    color: #666;
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.rating {
+    color: #c17b28;
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+/* MENU */
+
+.menu-section {
+    background: var(--light);
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.food-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.07);
+    transition: .3s;
+}
+
+.food-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,.12);
+}
+
+.food-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.food-info {
+    padding: 23px;
+}
+
+.food-info h3 {
+    color: #80451f;
+    margin-bottom: 10px;
+}
+
+.food-info p {
+    color: #777;
+    font-size: 14px;
+}
+
+/* EXPERIENCE BANNER */
+
+.banner {
+    background:
+    linear-gradient(rgba(30,15,5,.75), rgba(30,15,5,.75)),
+    url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 90px 20px;
+}
+
+.banner h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+    color: var(--gold);
+}
+
+/* REVIEWS */
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.review-card {
+    background: white;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.07);
+}
+
+.stars {
+    color: #d69b36;
+    margin-bottom: 15px;
+}
+
+.review-card p {
+    color: #666;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.review-card h4 {
+    color: #80451f;
+    margin-top: 18px;
+}
+
+/* CONTACT */
+
+.contact {
+    background: var(--brown);
+    color: white;
+    text-align: center;
+}
+
+.contact .section-title h2 {
+    color: var(--gold);
+}
+
+.contact .section-title p {
+    color: #ddd;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 35px 0;
+}
+
+.contact-box {
+    padding: 25px;
+    background: #38251a;
+    border-radius: 12px;
+}
+
+.contact-box h3 {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.contact-box p {
+    font-size: 14px;
+}
+
+.contact a:not(.btn) {
+    color: white;
+}
+
+/* FOOTER */
+
+footer {
+    background: #160d08;
+    color: #ccc;
+    padding: 30px 15px;
+    text-align: center;
+    font-size: 13px;
+}
+
+footer span {
+    color: var(--gold);
+}
+
+/* MOBILE */
+
+@media(max-width: 768px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--brown);
+        padding: 25px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .hero {
+        min-height: 520px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .food-grid,
+    .review-grid,
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .section-title h2,
+    .about-content h2 {
+        font-size: 28px;
+    }
+
+    .banner h2 {
+        font-size: 29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+<div class="container navbar">
+
+    <div class="logo">
+        MLP CAFE
+        <span>& RESTAURANT</span>
+    </div>
+
+    <button class="menu-toggle"
+    onclick="toggleMenu()" aria-label="Toggle navigation">
+        ?
+    </button>
+
+    <nav id="navigation">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#menu" onclick="closeMenu()">Menu</a>
+        <a href="#reviews" onclick="closeMenu()">Reviews</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+    </nav>
+
+</div>
+</header>
+
+<!-- HERO -->
+
+<div class="hero" id="home">
+<div class="hero-content">
+
+    <div class="tagline">WELCOME TO MLP CAFE</div>
+
+    <h1>
+        Good Food.<br>
+        <span>Great Moments.</span>
+    </h1>
+
+    <p>
+        Enjoy delicious food, beautiful ambience
+        and unforgettable moments with your family
+        and friends.
+    </p>
+
+    <a href="#menu" class="btn">EXPLORE MENU</a>
+
+    <a href="tel:+919941825999"
+       class="btn btn-outline">?? CALL NOW</a>
+
+</div>
+</div>
+
+<!-- ABOUT -->
+
+<section id="about">
+<div class="container about-grid">
+
+    <img class="about-image"
+    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80"
+    alt="Restaurant interior">
+
+    <div class="about-content">
+
+        <div class="tagline">OUR STORY</div>
+
+        <h2>Welcome to MLP Cafe & Restaurant</h2>
+
+        <p>
+            We offer a welcoming place to enjoy
+            delicious food and quality time with
+            your family and friends.
+        </p>
+
+        <p>
+            Visit us and enjoy a memorable dining
+            experience with great food and a
+            comfortable atmosphere.
+        </p>
+
+        <div class="rating">? 4.1 / 5</div>
+
+        <p>Based on 86 Google reviews</p>
+
+        <a href="#contact" class="btn">VISIT US</a>
+
+    </div>
+</div>
+</section>
+
+<!-- MENU -->
+
+<section class="menu-section" id="menu">
+<div class="container">
+
+    <div class="section-title">
+        <small>OUR SPECIALITIES</small>
+        <h2>Our Food Favourites</h2>
+        <p>Discover some of our restaurant favourites.</p>
+    </div>
+
+    <div class="food-grid">
+
+        <div class="food-card">
+            <img
+            src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=700&q=80"
+            alt="Chicken curry">
+
+            <div class="food-info">
+                <h3>Pepper Chicken</h3>
+                <p>A delicious chicken dish
+                with rich spices and flavour.</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <img
+            src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+            alt="Egg dish">
+
+            <div class="food-info">
+                <h3>Egg Burji</h3>
+                <p>A tasty egg preparation
+                with aromatic spices.</p>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <img
+            src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80"
+            alt="Delicious food">
+
+            <div class="food-info">
+                <h3>Delicious Food</h3>
+                <p>Visit us and explore our
+                available food menu.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:35px;">
+        <a href="tel:+919941825999" class="btn">
+            CALL FOR MENU & PRICES
+        </a>
+    </div>
+
+</div>
+</section>
+
+<!-- EXPERIENCE BANNER -->
+
+<div class="banner">
+    <h2>Good Food, Happy Moments!</h2>
+    <p>Make every meal a memorable experience.</p>
+    <a href="#contact" class="btn">FIND OUR RESTAURANT</a>
+</div>
+
+<!-- REVIEWS -->
+
+<section id="reviews">
+<div class="container">
+
+    <div class="section-title">
+        <small>HAPPY CUSTOMERS</small>
+        <h2>What People Say</h2>
+        <p>Customer feedback about our restaurant.</p>
+
+        <div class="rating">? 4.1</div>
+        <p>86 Google reviews</p>
+    </div>
+
+    <div class="review-grid">
+
+        <div class="review-card">
+            <div class="stars">?????</div>
+            <p>
+                "One of the best open-air restaurants
+                available around Naidupeta."
+            </p>
+            <h4>Customer Review</h4>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">?????</div>
+            <p>
+                "Good atmosphere and yummy food.
+                A nice place to spend time."
+            </p>
+            <h4>Customer Review</h4>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">?????</div>
+            <p>
+                "Good quality and nice service."
+            </p>
+            <h4>Customer Review</h4>
+        </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:35px;">
+        <a class="btn"
+        href="https://www.google.com/maps/search/?api=1&query=MLP+Cafe+Restaurant+Naidupeta"
+        target="_blank" rel="noopener">
+            READ GOOGLE REVIEWS
+        </a>
+    </div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+<div class="container">
+
+    <div class="section-title">
+        <small>COME VISIT US</small>
+        <h2>MLP Cafe & Restaurant</h2>
+        <p>We look forward to welcoming you!</p>
+    </div>
+
+    <div class="contact-info">
+
+        <div class="contact-box">
+            <h3>?? Address</h3>
+            <p>
+                WV8F+2G, Thimmaji Khandrika,
+                Andhra Pradesh 524126
+            </p>
+        </div>
+
+        <div class="contact-box">
+            <h3>?? Phone</h3>
+            <p>099418 25999</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>?? Timing</h3>
+            <p>Listed closing time: 11:00 PM</p>
+        </div>
+
+    </div>
+
+    <a class="btn" href="tel:+919941825999">
+        CALL NOW
+    </a>
+
+    <a class="btn"
+    href="https://wa.me/919941825999"
+    target="_blank" rel="noopener">
+        CHAT ON WHATSAPP
+    </a>
+
+    <a class="btn"
+    href="https://www.google.com/maps/search/?api=1&query=WV8F%2B2G%2C+Thimmaji+Khandrika%2C+Andhra+Pradesh+524126"
+    target="_blank" rel="noopener">
+        GET DIRECTIONS
+    </a>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <p>
+        © 2026 <span>MLP CAFE & RESTAURANT</span>.
+        All Rights Reserved.
+    </p>
+    <p>Thank you for visiting us!</p>
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+function toggleMenu() {
+    document.getElementById("navigation")
+    .classList.toggle("active");
+}
+
+function closeMenu() {
+    document.getElementById("navigation")
+    .classList.remove("active");
+}
+
+</script>
+
+</body>
+</html>
